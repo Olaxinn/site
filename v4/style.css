@@ -1,0 +1,247 @@
+/* ===== Genel ===== */
+:root {
+  --bg: #000;
+  --text: wheat;
+  --muted: #ddd;
+  --card: #111;
+  --accent1: #8fffa0;
+  --accent2: #0fa050;
+  --glow: rgba(0, 255, 144, 0.3);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  background: linear-gradient(135deg, #000 0%, #020202 50%, #050505 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-size: 400% 400%;
+  animation: bgShift 20s ease infinite;
+}
+
+/* Arkaplan gradient hareket */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* ===== Navbar ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 14px 0;
+  border-radius: 12px;
+  margin: 12px;
+  animation: navGlow 4s infinite alternate;
+}
+
+nav a {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+nav a:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 12px var(--accent1);
+}
+
+/* İki sütunlu düzen */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 70px);
+}
+
+/* Sol taraf (fotoğraf) */
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+img.photo {
+    width: 90%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease, rotate 0.6s ease;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15);
+}
+
+img.photo:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0px 0px 40px rgba(144, 238, 144, 0.4);
+}
+
+/* Sağ taraf (yazı / içerik) */
+.right {
+    flex: 1;
+    padding: 40px;
+    text-align: left;
+    overflow-y: auto; /* Sadece içerik fazla olursa burada scroll */
+    scrollbar-width: thin;              /* Firefox için */
+    scrollbar-color: lightgreen #222;   /* Firefox için */
+}
+
+/* Chrome, Edge, Safari scroll */
+.right::-webkit-scrollbar {
+    width: 8px;
+}
+.right::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+.right::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, lightgreen, green);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+.right::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, lime, darkgreen);
+}
+
+/* Başlıklar */
+.right h1 {
+    color: rgba(228, 188, 188, 0.85);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.right h3, .right h4 {
+    margin-top: 25px;
+    color: #ffcc66;
+    transition: color 0.3s ease;
+}
+
+.right h1:hover, .right h3:hover, .right h4:hover {
+    color: lightgreen;
+}
+
+/* Liste */
+li {
+    list-style: decimal;
+    margin: 8px 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+li:hover {
+    color: lightgreen;
+    transform: translateX(8px);
+}
+
+/* Fade-in animasyonu */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Foto açılış animasyonu */
+.photo-animate {
+    animation: zoomIn 1.2s ease forwards;
+}
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0.5; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Başlık hover sallanma */
+.shake {
+    animation: shakeAnim 0.4s ease;
+}
+@keyframes shakeAnim {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+a {
+    text-decoration: none;
+    color:#0fa050;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+}
+a:hover {
+    color: lightgreen;
+    text-decoration: underline;
+    transform: scale(1.05);
+    text-shadow: 0px 0px 12px lightgreen;
+}
+/* Chip grupları yan yana taşsın */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+/* Chip (rozet) tasarımı */
+.chip {
+  background: rgba(0, 255, 144, 0.08);
+  border: 1px solid rgba(0, 255, 144, 0.4);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: wheat;
+  cursor: default;
+  transition: all 0.3s ease;
+  text-decoration: none; /* linklerde alt çizgi olmasın */
+  box-shadow: 0 0 6px rgba(0, 255, 144, 0.2);
+}
+
+/* Hover efekti */
+.chip:hover {
+  background: rgba(0, 255, 144, 0.2);
+  border-color: lime;
+  color: lightgreen;
+  box-shadow: 0 0 12px rgba(0, 255, 144, 0.6), 0 0 24px rgba(0, 255, 144, 0.3);
+  transform: scale(1.05);
+}
+
+/* Sosyal medya özel */
+.chip-group.social .chip {
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.chip-group.social .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.chip-group.social .chip .icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(80%) sepia(50%) saturate(200%) hue-rotate(80deg);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.chip-group.social .chip:hover .icon {
+  transform: scale(1.2);
+  filter: invert(95%) sepia(100%) saturate(300%) hue-rotate(90deg);
+}
+.admin:hover{
+  cursor:not-allowed;
+}

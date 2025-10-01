@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projelerim</title>
+<link rel="stylesheet" href="/v4/style3.css" />
+</head>
+<body>
+
+    <!-- Navigasyon -->
+    <nav>
+        <a href="/v4/html/index.html">Ana Sayfa</a>
+        <a href="/v4/html/projelerim.html">Projelerim</a>
+        <a href="/v4/html/pentest.html">Pentest</a>
+    </nav>
+
+    <!-- Ana içerik -->
+    <main class="main-content">
+        <div class="card fade-in">
+            <h1>Projelerim</h1>
+
+            <!-- Proje 1 -->
+            <div class="project">
+                <h2 class="project-title">C# Tiyatro Otomasyon</h2>
+                <div class="project-details" style="display:none;">
+                    <p>
+                        Projeyi 10. sınıfta geliştirmiştim. Birkaç mantık hatası olabilir ama o zamanlar bu proje çok şey katmıştı.
+                        GitHub'a yüklerken bile o kadar uğraşmamışım; ilk GitHub'a attığım projedir ve her satırını kendi bilgimle yazdım.
+                        Aşırı emek vermiştim, o halimle manevi değeri büyüktür. İncelemek isteyene linki bıraktım.
+                    </p>
+                    <a href="https://github.com/Olaxinn/C--Tiyatro-Bilet-Sat---Otomasyonu/tree/main/Tiyatro%20B%C4%B0let%20Sat%C4%B1%C5%9F%20Otomasyonu" target="_blank">Github Link</a>
+                </div>
+            </div>
+
+            <!-- Proje 2 -->
+            <div class="project">
+                <h2 class="project-title">Sevgilim için kişiselleştirdiğim proje</h2>
+                <div class="project-details" style="display:none;">
+                    <p>
+                        1 satır kod yazmadım, sadece gerekli yeri kişiselleştirdim. İncelemek isteyen veya kendisi kişiselleştirmek isteyen bakabilir.
+                        Çoğu kızı etkileyecek bir projedir; eğer manitan varsa trip yiyorsan direkt affeder.
+                    </p>
+                    <a href="https://github.com/Olaxinn/askpareme.git" target="_blank">Github Link</a>
+                </div>
+            </div>
+
+            <!-- Proje 3 -->
+            <div class="project">
+                <h2 class="project-title">Python CRUD</h2>
+                <div class="project-details" style="display:none;">
+                    <p>
+                        Python kodlamak en keyif aldığım şeydir. Burada C# projemin benzeri olan CRUD işlemlerini daha basit halde Python ile yapmıştım.
+                        CRUD projeleri SQL ve kullanılan dilin betiğini iyi öğretir, öğrendiklerimi direkt uygulamaya dökmeyi amaçladım.
+                    </p>
+                    <a href="https://github.com/Olaxinn/basic-crud-py" target="_blank">GitHub Link</a>
+                </div>
+            </div>
+
+            <!-- Proje 4 -->
+            <div class="project">
+                <h2 class="project-title">Toggle Theme</h2>
+                <div class="project-details" style="display:none;">
+                    <p>
+                        Amacım dark theme - white theme toggle olayını yapmak, ama sonra kendimi vintage - cyberpunk yaparken buldum.
+                        CSS ile bir şeyler yapmak hoşuma gidiyor; Tailwind kullandım, tasarım olarak güzeldi. Hesap makinesi yapmıştım ama backendini
+                        yazmayı üşendiğim için bazı fonksiyonlar çalışmıyor, o kadar umursamadım.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Proje 5 -->
+            <div class="project">
+                <h2 class="project-title">Ortak Günlük</h2>
+                <div class="project-details" style="display:none;">
+                    <p>
+                        Bu proje ilk büyük girişimimdi. Sevgilimle ortak bir günlük yapmaktı amacım. Dosya düzensizliği ve karmaşık kodlara kadar her şeyi göreceksiniz.
+                        Tasarım olarak çok uğraşmıştım ama SQL olayı gözümü korkuttu; yoksa proje çalışıyor olmalıydı.
+                        Ayrıca özelim olduğu için secure code olayına girmiştim, ekstra güvenlik için fonksiyonlar yazmıştım.
+                    </p>
+                    <a href="https://github.com/Olaxinn/BasicKene.git" target="_blank">Github Link</a>
+                </div>
+            </div>
+
+            <!-- Yayınlanmamış Projeler -->
+            <div class="project">
+                <h2 class="project-title">Yayınlanmamış Projelerim</h2>
+                <div class="project-details" style="display:none;">
+                    <p>Şu an bilgisayarımda olan birkaç projeden bazıları:</p>
+                    <ul>
+                        <li>Malzeme'ye Göre Öneri Yemek Sitesi
+                            <p>Bu site daha sonra yayınlanacak; şimdilik geliştirme aşamasında.</p>
+                        </li>
+                        <li>Selenium ile Instagram Scrapper
+                            <p>Siteyi yedeklemediğim için formattan sonra gitmişti; şimdi tekrar Windows'ta yazdım.
+                            Program girilen hesabın takipçi sayısını ve isimlerini çekiyordu, daha sonra geliştirmeyi planlıyordum.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JS Animasyon ve Accordion -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fade-in kart
+            const cards = document.querySelectorAll(".card");
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.12}s`;
+                card.classList.add("visible");
+            });
+
+            // Başlık hover shake
+            document.querySelectorAll("h1, h2, h3, h4").forEach(el => {
+                el.addEventListener("mouseenter", () => el.classList.add("shake"));
+                el.addEventListener("mouseleave", () => el.classList.remove("shake"));
+            });
+
+            // Accordion toggle
+            const projectTitles = document.querySelectorAll(".project-title");
+            projectTitles.forEach(title => {
+                title.addEventListener("click", () => {
+                    const details = title.nextElementSibling;
+                    if(details.style.display === "none" || details.style.display === "") {
+                        details.style.display = "block";
+                    } else {
+                        details.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
